@@ -1,0 +1,40 @@
+version: '3.7'
+
+services:
+  backend_poo:
+    build:
+      context: ./src/
+      dockerfile: Dockerfile
+    container_name: backend_poo
+    volumes: 
+      - ./src/:/src
+      - node_modules:/src/node_modules
+    ports:
+      - 2600:2600
+    networks:
+      - poo_final_net
+    depends_on:
+      - db_poo
+  db_poo:
+    image: postgres
+    container_name: db_poo
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123
+      POSTGRES_DB: db_poo_dev
+      PGDATA: /var/lib/postgresql/data
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432 
+    networks:
+      - poo_final_net
+
+networks:
+  poo_final_net:
+    driver: bridge
+
+volumes:
+  db-data:
+  node_modules:
