@@ -1,0 +1,4 @@
+module.exports = {
+  PRIVATE_KEY: 'dwM4fZdrNDThDxe6fVVpSnbVT6Wa6LPDN8hthnaXSaqcCKthPPdZ7REQWRhAA5yN6qy862byPM3u',
+  EXPIRATION_TIME: '1h'
+}
