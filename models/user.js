@@ -27,7 +27,7 @@ const User = sequelize.define('User', {
     defaultValue: 'user'
   }
 }, {
-  // Other model options go here
+  // Other model options go heree
   timestamps: true,
   createdAt: true,
   updatedAt: true
